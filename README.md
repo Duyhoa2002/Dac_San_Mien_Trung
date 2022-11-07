@@ -14,3 +14,9 @@ Các chức năng cần xây dựng trong hệ thống
     + SELLER: đối tác bán bán hàng
     + SHIPPER: Người giao hàng
     + BUYER: Khách hàng tham gia mua hàng
+
+Kiến trúc MVC
+Công nghệ sử dụng
+  - Frondend: Bootstrap, AngularJS(1)
+  - Backend: Spring-boot
+  - Hệ quản trị: MSSQL (SQL Server 2019)
