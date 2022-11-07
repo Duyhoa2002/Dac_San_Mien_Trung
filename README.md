@@ -1,6 +1,7 @@
 # Dac_San_Mien_Trung
 Dự án thực tập ĐẶC SẢN MIỀN TRUNG
-
+Giảng viên hướng dẫn
+  - `thầy` Trần Quang Bình
 Thành viên nhóm:
   - Hồ Nguyên Quốc
   - Ngô Duy Hòa
