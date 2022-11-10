@@ -6,6 +6,6 @@ import org.springframework.stereotype.Repository;
 import dsmt.model.entities.OrderStatus;
 
 @Repository
-public interface StatusRepository extends JpaRepository<OrderStatus, Integer> {
+public interface OrderStatusRepository extends JpaRepository<OrderStatus, Integer>{
 
 }

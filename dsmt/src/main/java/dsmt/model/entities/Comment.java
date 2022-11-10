@@ -21,8 +21,9 @@ public class Comment {
 	
 	@EmbeddedId private CommentId id;
 	private String descript;
-	@ObtainVia @Column(name = "regtime")
+	
 	@DateTimeFormat(pattern = "yyyy-MM-dd hh:mm:ss.SSS")
+	@ObtainVia @Column(name = "regtime")
 	private Date regTime = new Date();
 	
 }

@@ -9,5 +9,4 @@ import dsmt.model.entities.OrderStatus;
 @CrossOrigin("*")
 @RequestMapping({"/rest/status"})
 public class RestStatus extends AbstractRESTful<OrderStatus, Integer>{
-	
 }

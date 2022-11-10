@@ -12,7 +12,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
-import javax.persistence.OneToOne;
+import javax.persistence.OneToMany;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
@@ -38,15 +38,14 @@ public class Product {
 	private Category category;
 	private String account_id;
 	
-//	@JsonIgnore @OneToOne
-//    @JoinColumn(name = "product_id")
-//	private OrderStatus status;
-	
 	@ElementCollection @Column(name = "image")
 	@CollectionTable (
 		name = "PRODUCT_IMAGES",
 		joinColumns = @JoinColumn(name = "product_id")
 	) private List<String> images;
+	
+	@JoinColumn(name = "product_id", referencedColumnName = "id")
+	@JsonIgnore @OneToMany List<OrderDetail> order_details;
 	
 	// @formatter:on
 

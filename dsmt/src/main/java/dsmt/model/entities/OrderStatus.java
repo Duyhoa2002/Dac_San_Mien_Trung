@@ -1,9 +1,7 @@
 package dsmt.model.entities;
 
-import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
 import lombok.AllArgsConstructor;
 import lombok.Builder.ObtainVia;
@@ -23,9 +21,9 @@ public class OrderStatus {
 	@ObtainVia private Integer status = 0;
 	private String descript;
 	
-//	@OneToOne(cascade = CascadeType.ALL)
-//	private Product product;
-	
+	@OneToOne(mappedBy = "status")
+	private Order order;
+
 	// @formatter:on
 
 }
