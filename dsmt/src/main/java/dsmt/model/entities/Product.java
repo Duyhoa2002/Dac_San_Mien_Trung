@@ -15,6 +15,7 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIncludeProperties;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -36,7 +37,11 @@ public class Product {
 	
 	@ManyToOne(cascade = CascadeType.DETACH)
 	private Category category;
-	private String account_id;
+	
+	@JsonIncludeProperties({"username", "email", "name"})
+	@JoinColumn(name = "account_id")
+	@ManyToOne(cascade = CascadeType.ALL)
+	private Account account;
 	
 	@ElementCollection @Column(name = "image")
 	@CollectionTable (

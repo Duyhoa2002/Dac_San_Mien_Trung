@@ -48,4 +48,8 @@ public class Account {
 	@ElementCollection @Column(name = "product_id") // danh gia san pham
 	@CollectionTable(name = "COMMENTS", joinColumns = { @JoinColumn(name = "account_id") })
 	private List<Integer> comments;
+
+	public Account(String username) {
+		this.username = username;
+	}
 }
