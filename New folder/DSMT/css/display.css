@@ -1,0 +1,135 @@
+/* Text vertical */
+.fit-img {
+    height: 100%;
+    width: 100%;
+}
+
+.fit-min {
+    min-width: 100% !important;
+    min-height: 100% !important;
+}
+
+.text-vr {
+    writing-mode: vertical-lr;
+    text-orientation: mixed;
+}
+
+.accountAvatar {
+    border-radius: 20px;
+    max-width: 2.5rem;
+    border: 1px solid #ffff00;
+}
+
+.subject-content {
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+	position: absolute;
+	background-color: #ffff00;
+	width: calc(100% - .5rem);
+    padding: 0 1rem;
+}
+
+.fit-choose-img {
+    position: absolute;
+    left: 1rem;
+    top: 1rem;
+    right: 1rem;
+    bottom: 1rem;
+    opacity: 0;
+}
+
+.fit-label-img {
+    position: absolute;
+    left: 1rem;
+    right: 1rem;
+    bottom: 1rem;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+/* fit image */
+.o-fit-cover, .o-fit-contain:active {
+    object-fit: cover;
+}
+
+.o-fit-contain, .o-fit-cover:active {
+    object-fit: contain;
+}
+
+/* hover */
+.hover:hover{
+    opacity: 1;
+    animation: effect1 forwards 1s;
+}
+
+.hover-bg:hover {
+    background: #0000004d;
+}
+.hover-box:hover {
+    box-shadow: 0 0 10px #0000004d;
+}
+
+.showA:hover{
+    border-radius: 0 1.5rem 0 .5rem;
+    background-color: #000000a2;
+}
+.showA:hover>a{
+    display: inline !important;
+}
+
+/* size */
+.size-2 {
+    width: calc(100%/2);
+}
+
+.size-3 {
+    width: calc(100%/3);
+}
+
+.size-4 {
+    width: calc(100%/4);
+}
+
+.size-5 {
+    width: calc(100%/5);
+}
+
+.ar1x1{
+    aspect-ratio: 1/1;
+}
+
+.ar4x3{
+    aspect-ratio: 4/3;
+}
+
+.ar16x9{
+    aspect-ratio: 16/9;
+}
+
+.ar16x10{
+    aspect-ratio: 16/10;
+}
+
+.ar3x4{
+    aspect-ratio: 3/4;
+}
+
+.ar9x16{
+    aspect-ratio: 9/16;
+}
+
+.ar10x16{
+    aspect-ratio: 10/16;
+}
+
+/* Effects */
+@keyframes effect1 {
+    50% {
+        opacity: .5;
+        transform: translateY(-2rem);
+        box-shadow: 0 0 1.5rem #ff4800;
+    } to {
+        opacity: 1;
+    }
+}

@@ -1,0 +1,541 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<!-- Bootstrap -->
+<link
+	href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css"
+	rel="stylesheet"
+	integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3"
+	crossorigin="anonymous">
+<script
+	src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+	integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
+	crossorigin="anonymous"></script>
+<!-- Fontawesome -->
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css"
+	integrity="sha512-1sCRPdkRXhBV2PBLUdRb4tMg1w2YPf37qatUFeS7zlBy7jJI8Lf4VHwWfZZfpXtYSLy85pkm9GaYVYMfw5BC1A=="
+	crossorigin="anonymous" referrerpolicy="no-referrer" rel="stylesheet"/>
+<!-- Angular JS -->
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.7/angular.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.7/angular-route.min.js"></script>
+<!-- Qrcode -->
+<script
+	src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"
+	integrity="sha512-CNgIRecGo7nphbeZ04Sc13ka07paqdeTu0WR1IM4kNcpmBAUSHSQX0FslNhTDadL4O5SAGapGt4FodqL8My0mA=="
+	crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<!-- CharJS  -->
+<script 
+    src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.9.1/chart.min.js" 
+    integrity="sha512-ElRFoEQdI5Ht6kZvyzXhYG9NqjtkmlkfYk0wr6wHxU9JEHakS7UJZNeml5ALk+8IKlU6jDgMabC3vkumRokgJA==" 
+    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<!-- MomentJS -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.4/moment.min.js" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.4/moment-with-locales.min.js" 
+    integrity="sha512-42PE0rd+wZ2hNXftlM78BSehIGzezNeQuzihiBCvUEB3CVxHvsShF86wBWwQORNxNINlBPuq7rG4WWhNiTVHFg==" 
+    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<!-- ----------------------------------- -->
+<link href="css/display.css" rel="stylesheet" type="text/css">
+<title>TRANG CHỦ</title>
+</head>
+<body>
+	<div class="container-xxl border border-warning scroll-style">
+		<!-- NAVBAR -->
+		<nav class="navbar navbar-expand-lg bg-light">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="/dsmt">
+                    &Ropf;&Ropf;&sopf;
+                    <sup style="font-size: .6rem;">service</sup>
+                </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarScroll"
+                    aria-controls="navbarScroll" aria-expanded="false" aria-label="Toggle navigation">
+                    <i class="fa fa-2xl fa-bars text-secondary"></i>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarScroll">
+                    <ul class="navbar-nav me-auto my-2 my-lg-0 navbar-nav-scroll" style="--bs-scroll-height: 100px;">
+                        <!-- PAGES HOME -->
+                        <li class="nav-item">
+                            <a class="nav-link active" aria-current="page" href="/dsmt/pages/home">
+                                <i class="fa fa-home-lg"></i>
+                                Home
+                            </a>
+                        </li>
+                                               
+                        <!-- _________________________________________ MANAGEMENT FOR ROLE'S ADMIN -->
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                <i class="fa fa-desktop-alt"></i>
+                                manager
+                            </a>
+                            <ul class="dropdown-menu">
+                                <!-- users're account management -->
+                                <a class="nav-link" href="/dsmt/pages/admin/account">
+                                    <i class="fa fa-user-friends"></i>
+                                    tài khoản
+                                </a>
+                                <a class="nav-link" href="/dsmt/pages/admin/staff">
+                                    <i class="fa fa-user-gear"></i>
+                                    nhân viên
+                                </a>
+                                <!-- contents management -->
+                                <li><hr class="m-0 dropdown-divider"></li>
+                                <a class="nav-link" href="/dsmt/pages/admin/content">
+                                    <i class="fa fa-circle-nodes"></i>
+                                    nội dung
+                                </a>
+                                <a class="nav-link" href="/dsmt/pages/admin/content_detail">
+                                    <i class="fa fa-id-card-clip"></i>
+                                    Quản lý chi tiết
+                                </a>
+                                <a class="nav-link" href="/dsmt/pages/statistics/statistic">
+                                    <i class="fa-solid fa-chart-simple"></i>
+                                    Thống kê
+                                </a>
+                                <!-- others management -->
+                                <li><hr class="m-0 dropdown-divider"></li>
+                                <a class="nav-link" href="/dsmt/pages/admin/setting">
+                                    <i class="fa fa-file"></i>
+                                    file and others
+                                </a>
+                                <a class="nav-link" href="/dsmt/pages/admin/develop">
+                                    <i class="fa fa-code"></i>
+                                    Dev mode
+                                </a>
+                            </ul>
+                        </li>
+                    </ul>
+
+                    <ul class="navbar-nav navbar-nav-scroll">
+                        <li class="nav-item">
+                            <a class="nav-link" href="#typeProduct">
+                                Sản phẩm khác
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#newsMes">
+                                Tin tức
+                            </a>
+                        </li>
+                    </ul>
+
+                    <!-- _________________________________________ SECURITY -->
+                    <ul class="navbar-nav my-2 my-lg-0 navbar-nav-scroll">
+                        <li class="nav-item dropdown" onmouseenter="drdActive(this)" onmouseleave="drdActive(this)" th:unless="${#request.remoteUser}">
+                            <a class="nav-link dropdown-toggle" href="/security/login" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                <i class="fa fa-sign-in"></i>&nbsp;Đăng nhập
+                            </a>
+                            <ul class="dropdown-menu">
+                                <!-- users're account management -->
+                                <a class="nav-link" href="/security/loginForm">
+                                    <i class="fa fa-sign-in-alt"></i>
+                                    Đăng nhập
+                                </a>
+                                <a class="nav-link disabled" href="">
+                                    <i class="fa-brands fa-facebook-square"></i>
+                                    Google</a>
+                                <a class="nav-link disabled" href="">
+                                    <i class="fa-brands fa-google"></i>
+                                    Facebook
+                                </a>
+                                
+                                <li><hr class="m-0 dropdown-divider"></li>
+                                <a class="nav-link" href="/security/register">
+                                    <i class="fa fa-registered"></i>
+                                    Đăng ký
+                                </a>
+        
+                                <li><hr class="m-0 dropdown-divider"></li>
+                                <a class="nav-link" href="/security/forgot_password">
+                                    <i class="fa fa-question-circle"></i>
+                                    Quên mật khẩu
+                                </a>
+                            </ul>
+                        </li>
+        
+                        <li class="nav-item dropdown" onmouseenter="drdActive(this)" onmouseleave="drdActive(this)" th:if="${#request.remoteUser}">
+                            <a class="nav-link dropdown-toggle" href="/security/logoutForm" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                <i class="fa fa-sign-out"></i>&nbsp;Đăng xuất
+                            </a>
+                            <ul class="dropdown-menu">
+                                <!-- users're account management -->
+                                <a class="nav-link" href="/security/logoutForm">
+                                    <i class="fa fa-sign-out-alt"></i>
+                                    Đăng xuất
+                                </a>
+                                <!-- contents management -->
+                                <li><hr class="m-0 dropdown-divider"></li>
+                                <a class="nav-link" href="/security/change_password">
+                                    <i class="fa fa-refresh"></i>
+                                    Đổi mật khẩu
+                                </a>
+                                <a class="nav-link" href="/security/about_me">
+                                    <i class="fa fa-id-card"></i>
+                                    Thông tin
+                                </a>
+                            </ul>
+                        </li>
+                    </ul>
+                    <!-- 
+                        <form class="d-flex" role="search">
+                            <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                            <button class="btn btn-outline-success" type="submit">Search</button>
+                        </form>
+                     -->
+                </div>
+            </div>
+        </nav>
+		
+		<!-- CONTENTS -->
+		<main class="container-fluid" ng-app="app" ng-controller="control">
+            <div class="row">
+
+                <!-- Nomal products -->
+                <div class="col-lg-12 border mt-1 rounded-3 pt-2 pb-2">
+                    <!-- Prepare data -->
+                    <div class="d-none">
+                        {{data2 = (data | filter: {category:{id:fil1.$cate.id} })}}
+                        {{fil1.size=(data2.length/12 | number:0)}}
+                        <input type="hidden" ng-init="fil1.$cate.id=undefined">
+                        <input type="hidden" ng-init="fil1.page=0">
+                    </div>
+        
+                    <h3 class="text-uppercase text-center text-lg-end border-bottom text-primary">
+                        Sản phẩm Theo loại&nbsp;
+                        <sup><i class="fas fa-th"></i></sup>
+                    </h3>
+        
+                    <!-- loai san pham -->
+                    <div class="pb-2 d-flex overflow-auto justify-content-lg-end border-bottom">
+                        <button class="m-1 btn btn-outline-primary text-nowrap active" 
+                            onclick="buttonActive(this, 'categories')" name="categories" ng-click="fil1.$cate.id=undefined">
+                            tất cả
+                        </button>
+                        <button class="m-1 btn btn-outline-primary text-nowrap" ng-repeat="x in categories" 
+                            onclick="buttonActive(this, 'categories')" name="categories" ng-click="fil1.$cate.id=x.id">
+                            {{x.name}}
+                        </button>
+                    </div>
+        
+                    <!-- product -->
+                    <div class="overflow-auto d-flex flex-wrap">
+                        <div class="col-lg-2 col-md-4 col-sm-6 p-1" ng-repeat="e in data2 | limitTo: 12:fil1.page*12">
+                            <div class="card fit-img">
+                                <div class="card-title m-0 fw-bold text-center">
+                                    {{e.name}}
+                                </div>
+                                <div class="card-body p-1">
+                                    <span class="position-absolute bg-warning bg-opacity-75 fs-5 badge"
+                                        ng-if="e.proPrice>0">
+                                        <i class="fa-solid fa-tag"></i>&nbsp;{{e.proPrice}}%
+                                    </span>
+                                    <!-- Show account and related products control bar -->
+                                    <div class="m-1 position-absolute bottom-0 end-0 text-end showA text-nowrap overflow-auto" style="width: calc(100% - 0.5em);">
+                                        <a style="display: none; font-size: small;" href="mailto:{{e.account.email}}" class="btn btn-light p-1">Gửi email</a>
+                                        <!-- Show account posted content -->
+                                        <button class="btn p-0 ar1x1">
+                                            <img class="fit-img o-fit-cover accountAvatar" ng-src="https://www.pngitem.com/pimgs/m/150-1503945_transparent-user-png-default-user-image-png-png.png" 
+                                                alt="{{e.account.name}}" title="{{e.account.name}}">
+                                        </button>
+                                    </div>
+                                    <img ng-src="{{getImage(e.images[0])}}" class="fit-img" style="object-fit: cover;">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+        
+                    <!-- pagination -->
+                    <nav aria-label="Page navigation example" ng-if="fil1.size > 1">
+                        <ul class="pagination justify-content-center">
+                            <li class="page-item" ng-click="fil1.page= fil1.page>0?fil1.page-1:0">
+                                <a class="page-link" href="" aria-label="Previous">
+                                    <span aria-hidden="true">&laquo;</span>
+                                </a>
+                            </li>
+                            <li class="page-item d-flex overflow-auto">
+                                <div class="" ng-click="fil1.page=i" ng-repeat="(i,e) in range(fil1.size)">
+                                    <a class="page-link" href="" aria-label="Previous">{{e}}</a>
+                                </div>
+                            </li>
+                            <li class="page-item" ng-click="fil1.page= fil1.size>fil1.page?fil1.page+1:fil1.size">
+                                <a class="page-link" href="" aria-label="Next">
+                                    <span aria-hidden="true">&raquo;</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </nav>
+                </div>
+                
+                <!-- target products -->
+                <nav class="col-lg-12 mt-1 p-1 bg-light bg-gradient border-top border-bottom nav justify-content-evenly justify-content-lg-end" id="typeProduct">
+                    <a class="m-1 btn btn-outline-success active" href="#" data-bs-target="#productCarousel" data-bs-slide-to="0" name="typeProducts"
+                        onclick="buttonActive(this, 'typeProducts')">
+                        SẢN PHẨM BÁN CHẠY&nbsp;<i class="fa-solid fa-gauge-high"></i>
+                    </a>
+                    <a class="m-1 btn btn-outline-warning" href="#" data-bs-target="#productCarousel" data-bs-slide-to="1" name="typeProducts"
+                        onclick="buttonActive(this, 'typeProducts')">
+                        SẢN PHẨM KHUYỄN MÃI&nbsp;<i class="fa-solid fa-tag"></i>
+                    </a>
+                    <a class="m-1 btn btn-outline-danger" data-bs-target="#productCarousel" data-bs-slide-to="2" name="typeProducts"
+                        onclick="buttonActive(this, 'typeProducts')">
+                        SẢN PHẨM HOT&nbsp;<i class="fa-brands fa-hotjar"></i>
+                    </a>
+                </nav>
+
+                <!-- Carousel type products -->
+                <div id="productCarousel" class="col-lg-12 carousel slide border mt-1 rounded-3 pt-2 pb-2" data-bs-ride="true">
+                    <div class="carousel-inner">   
+                        
+                        <!-- Ban chay -->
+                        <div class="carousel-item active">
+                            <!-- Prepare data -->
+                            <div class="d-none">
+                                {{fil2.size=(data3.length/12 | number:0)}}
+                                <input type="hidden" ng-init="fil2.$cate.id=undefined">
+                                <input type="hidden" ng-init="fil2.page=0">
+                            </div>
+                
+                            <h3 class="text-uppercase text-center text-lg-end border-bottom text-success">
+                                Sản phẩm bán chạy&nbsp;
+                                <sup><i class="fa-solid fa-gauge-high"></i></sup>
+                            </h3>
+                
+                            <!-- product -->
+                            <div class="overflow-auto d-flex flex-wrap">
+                                <div class="col-lg-2 col-md-4 col-sm-6 p-1" ng-repeat="(i,e) in data3 | limitTo: 12:fil2.page*12">
+                                    <div class="card fit-img">
+                                        <div class="card-title m-0 fw-bold text-center">
+                                            {{e.name}}
+                                        </div>
+                                        <div class="card-body p-1">
+                                            <span class="position-absolute bg-success bg-opacity-75 fs-5 badge">
+                                                SỐ LƯỢNG&nbsp;{{e.quantity}}
+                                            </span>
+                                            <!-- Show account and related products control bar -->
+                                            <div class="m-1 position-absolute bottom-0 end-0 text-end showA text-nowrap overflow-auto" style="width: calc(100% - 0.5em);">
+                                                <a style="display: none; font-size: small;" href="mailto:{{e.account.email}}" class="btn btn-light p-1">Gửi email</a>
+                                                <!-- Show account posted content -->
+                                                <button class="btn p-0 ar1x1">
+                                                    <img class="fit-img o-fit-cover accountAvatar" ng-src="https://www.pngitem.com/pimgs/m/150-1503945_transparent-user-png-default-user-image-png-png.png" 
+                                                        alt="{{e.account.name}}" title="{{e.account.name}}">
+                                                </button>
+                                            </div>
+                                            <img ng-src="{{getImage(e.images[0])}}" class="fit-img" style="object-fit: cover;">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- pagination -->
+                            <nav aria-label="Page navigation example" ng-if="fil2.size > 1">
+                                <ul class="pagination justify-content-center">
+                                    <li class="page-item" ng-click="fil2.page= fil2.page>0?fil2.page-1:0">
+                                        <a class="page-link" href="" aria-label="Previous">
+                                            <span aria-hidden="true">&laquo;</span>
+                                        </a>
+                                    </li>
+                                    <li class="page-item d-flex overflow-auto">
+                                        <div class="" ng-click="fil2.page=i" ng-repeat="(i,e) in range(fil2.size)">
+                                            <a class="page-link" href="" aria-label="Previous">{{e}}</a>
+                                        </div>
+                                    </li>
+                                    <li class="page-item" ng-click="fil2.page= fil2.size>fil2.page?fil2.page+1:fil2.size">
+                                        <a class="page-link" href="" aria-label="Next">
+                                            <span aria-hidden="true">&raquo;</span>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </nav>
+                        </div>
+                        
+                        <!-- Khuyen mai -->
+                        <div class="carousel-item">
+                            <!-- Prepare data -->
+                            <div class="d-none">
+                                {{data4 = (data | compare:'proPrice':0)}}
+                                {{fil3.size=(data4.length/12 | number:0)}}
+                                <input type="hidden" ng-init="fil3.$cate.id=undefined">
+                                <input type="hidden" ng-init="fil3.page=0">
+                            </div>
+                
+                            <h3 class="text-uppercase text-center text-lg-end border-bottom text-warning">
+                                Sản phẩm khuyễn mãi&nbsp;
+                                <sup><i class="fa-solid fa-tag"></i></sup>
+                            </h3>
+                
+                            <!-- product -->
+                            <div class="overflow-auto d-flex flex-wrap">
+                                <div class="col-lg-2 col-md-4 col-sm-6 p-1" ng-repeat="e in data4 | limitTo: 12:fil3.page*12">
+                                    <div class="card fit-img">
+                                        <div class="card-title m-0 fw-bold text-center">
+                                            {{e.name}}
+                                        </div>
+                                        <div class="card-body p-1">
+                                            <span class="position-absolute bg-warning bg-opacity-75 fs-5 badge">
+                                                <i class="fa-solid fa-tag"></i>&nbsp;{{e.proPrice}}%
+                                            </span>
+                                            <!-- Show account and related products control bar -->
+                                            <div class="m-1 position-absolute bottom-0 end-0 text-end showA text-nowrap overflow-auto" style="width: calc(100% - 0.5em);">
+                                                <a style="display: none; font-size: small;" href="mailto:{{e.account.email}}" class="btn btn-light p-1">Gửi email</a>
+                                                <!-- Show account posted content -->
+                                                <button class="btn p-0 ar1x1">
+                                                    <img class="fit-img o-fit-cover accountAvatar" ng-src="https://www.pngitem.com/pimgs/m/150-1503945_transparent-user-png-default-user-image-png-png.png" 
+                                                        alt="{{e.account.name}}" title="{{e.account.name}}">
+                                                </button>
+                                            </div>
+                                            <img ng-src="{{getImage(e.images[0])}}" class="fit-img" style="object-fit: cover;">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                
+                            <!-- pagination -->
+                            <nav aria-label="Page navigation example" ng-if="fil3.size > 1">
+                                <ul class="pagination justify-content-center">
+                                    <li class="page-item" ng-click="fil3.page= fil3.page>0?fil3.page-1:0">
+                                        <a class="page-link" href="" aria-label="Previous">
+                                            <span aria-hidden="true">&laquo;</span>
+                                        </a>
+                                    </li>
+                                    <li class="page-item d-flex overflow-auto">
+                                        <div class="" ng-click="fil3.page=i" ng-repeat="(i,e) in range(fil3.size)">
+                                            <a class="page-link" href="" aria-label="Previous">{{e}}</a>
+                                        </div>
+                                    </li>
+                                    <li class="page-item" ng-click="fil3.page= fil3.size>fil3.page?fil3.page+1:fil3.size">
+                                        <a class="page-link" href="" aria-label="Next">
+                                            <span aria-hidden="true">&raquo;</span>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </nav>
+                        </div>
+                
+                        <!-- Hot -->
+                        <div class="carousel-item">
+                            <!-- Prepare data -->
+                            <div class="d-none">
+                                {{fil3.size=(data5.length/12 | number:0)}}
+                                <input type="hidden" ng-init="fil3.$cate.id=undefined">
+                                <input type="hidden" ng-init="fil3.page=0">
+                            </div>
+
+                            <h3 class="text-uppercase text-center text-lg-end border-bottom text-danger">
+                                Sản phẩm HOT&nbsp;
+                                <sup><i class="fa-brands fa-hotjar"></i></sup>
+                            </h3>
+
+                            <!-- product -->
+                            <div class="overflow-auto d-flex flex-wrap">
+                                <div class="col-lg-2 col-md-4 col-sm-6 p-1" ng-repeat="(i,e) in data5 | limitTo: 12:fil3.page*12">
+                                    <div class="card fit-img">
+                                        <div class="card-title m-0 fw-bold text-center">
+                                            {{e.name}}
+                                        </div>
+                                        <div class="card-body p-1">
+                                            <span class="position-absolute bg-danger bg-opacity-75 badge fs-5">
+                                                <i class="fa-brands fa-hotjar"></i>&nbsp;HOT-TOP&nbsp;{{e.quantity}}
+                                            </span>
+                                            <span class="position-absolute bg-warning bg-opacity-75 badge" ng-if="e.proPrice > 0" style="top: 5rem;right: .25rem;">
+                                                <i class="fa-solid fa-tag"></i>&nbsp;{{e.proPrice}}%
+                                            </span>
+                                            <!-- Show account and related products control bar -->
+                                            <div class="m-1 position-absolute bottom-0 end-0 text-end showA text-nowrap overflow-auto"
+                                                style="width: calc(100% - 0.5em);">
+                                                <a style="display: none; font-size: small;" href="mailto:{{e.account.email}}"
+                                                    class="btn btn-light p-1">Gửi email</a>
+                                                <!-- Show account posted content -->
+                                                <button class="btn p-0 ar1x1">
+                                                    <img class="fit-img o-fit-cover accountAvatar"
+                                                        ng-src="https://www.pngitem.com/pimgs/m/150-1503945_transparent-user-png-default-user-image-png-png.png"
+                                                        alt="{{e.account.name}}" title="{{e.account.name}}">
+                                                </button>
+                                            </div>
+                                            <img ng-src="{{getImage(e.images[0])}}" class="fit-img" style="object-fit: cover;">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- pagination -->
+                            <nav aria-label="Page navigation example" ng-if="fil3.size > 1">
+                                <ul class="pagination justify-content-center">
+                                    <li class="page-item" ng-click="fil3.page= fil3.page>0?fil3.page-1:0">
+                                        <a class="page-link" href="" aria-label="Previous">
+                                            <span aria-hidden="true">&laquo;</span>
+                                        </a>
+                                    </li>
+                                    <li class="page-item d-flex overflow-auto">
+                                        <div class="" ng-click="fil3.page=i" ng-repeat="(i,e) in range(fil3.size)">
+                                            <a class="page-link" href="" aria-label="Previous">{{e}}</a>
+                                        </div>
+                                    </li>
+                                    <li class="page-item" ng-click="fil3.page= fil3.size>fil3.page?fil3.page+1:fil3.size">
+                                        <a class="page-link" href="" aria-label="Next">
+                                            <span aria-hidden="true">&raquo;</span>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </nav>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <script>
+                const app = angular.module('app', ['ngRoute']);
+                var serverIO = 'http://localhost:8080';
+                
+                app.filter('compare', () => {
+                    return (array, col, value) => {
+                        if(!array) return;
+                        return array.filter(x => x[col] > value);
+                    }
+                });
+
+                app.controller('control', function($scope, $http) {
+
+                    //
+                    $scope.range = (size) => {
+                        var arr = [];
+                        for (let i = 0; i <= size; arr.push(++i));
+                        return arr;
+                    }
+
+                    // get all categories
+                    $http.get(getLink(serverIO,'rest/categories')).then(r => {
+                        if(r.status==200) $scope.categories = r.data
+                    }).catch(e => console.error(e.data ? e.data.message : e));
+
+                    // get all products
+                    $http.get(getLink(serverIO,'rest/products')).then(r => {
+                        if(r.status==200) $scope.data = r.data;
+                    }).catch(e => console.error(e.data ? e.data.message : e));
+                    
+                    // get all discount data
+                    $http.get(getLink(serverIO,'rest/products/dis')).then(r => {
+                        if(r.status==200) $scope.data3 = r.data;
+                    }).catch(e => console.error(e.data ? e.data.message : e));
+
+                    // get all hotTOP data
+                    $http.get(getLink(serverIO,'rest/products/hot')).then(r => {
+                        if(r.status==200) $scope.data5 = r.data;
+                    }).catch(e => console.error(e.data ? e.data.message : e));
+
+                    // prepare image
+                    $scope.getImage = function(imgName) {
+                        if(imgName) return imgName.startsWith('http') || imgName.startsWith('blob') ? imgName.trim() : getLink(serverIO, 'data/images/product', imgName);
+                        return getLink(serverIO, 'data/images/product/default.png');
+                    }
+                });
+            </script>
+        </main>
+	</div>
+    
+	<!-- Javascript files -->
+	<script type="text/javascript" src="./js/dsmt.js"></script>
+	<script type="text/javascript" src="./js/support_bootstrap.js"></script>
+</body>
+</html>
