@@ -68,9 +68,10 @@ CREATE TABLE COMMENTS (
     account_id varchar(20) foreign key references ACCOUNTS(username)
     on update cascade on delete cascade not null,
     product_id int foreign key references PRODUCTS(id),
-    descript nvarchar(255),
     regTime datetime default getDate(),
-    primary key(account_id, product_id)
+	descript nvarchar(255),
+    primary key(account_id, product_id, regTime),
+
 );
 
 IF EXISTS (SELECT name FROM sys.tables WHERE name = 'ORDERS') DROP TABLE ORDERS
@@ -89,8 +90,9 @@ CREATE TABLE ORDER_DETAILS (
     order_id int foreign key references ORDERS(id) 
     on update cascade on delete cascade not null,
     product_id int foreign key references PRODUCTS(id),
+	primary key(order_id, product_id),
     oldPrice float default 0,
-    quantity int
+    quantity int default 1
 );
 
 IF EXISTS (SELECT name FROM sys.tables WHERE name = 'ORDER_STATUS') DROP TABLE ORDER_STATUS
