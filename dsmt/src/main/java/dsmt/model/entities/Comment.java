@@ -35,10 +35,10 @@ public class Comment implements Serializable {
 	
 	private String descript;
 	
-	@JoinColumn(name = "account_id", referencedColumnName = "username")
+	@JoinColumn(name = "account_id", referencedColumnName = "username", insertable = false, updatable = false)
 	@ManyToOne @JsonIncludeProperties({"username", "email", "name"})
 	@Id private Account account;
-
+	
 	public Comment(String account_id, Integer product_id) {
 		this.product_id = product_id;
 	}

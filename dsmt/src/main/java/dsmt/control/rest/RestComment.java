@@ -37,7 +37,7 @@ public class RestComment extends AbstractRESTful<Comment, Comment>{
 	}
 	
 	@PostMapping("/post")
-	public ResponseEntity<Comment> post(@RequestBody Comment entity){
+	public ResponseEntity<Comment> post(@RequestBody Comment entity) {
 		entity.setAccount(new Account("hoandps18107"));
 		return ResponseEntity.ok(dao.save(entity));
 	}
@@ -48,8 +48,6 @@ public class RestComment extends AbstractRESTful<Comment, Comment>{
 			@RequestParam(required = false) Integer p,
 			@RequestParam(required = false) String t
 	) throws IllegalArgumentException {
-		System.out.println(a + "\n" + p + "\n" + t);
-		
 		if(a != null && p != null && t != null) {
 			((CommentService) dao).delete(a,p,t);
 			return ResponseEntity.ok().build();

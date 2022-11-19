@@ -1,0 +1,21 @@
+[
+    {
+        "id": -1,
+        "name": "Chờ xác nhận"
+    },{
+        "id": 0,
+        "name": "Đơn chưa chốt"
+    },{
+        "id": 1,
+        "name": "Đang chuẩn bị"
+    },{
+        "id": 2,
+        "name": "Đang giao hàng"
+    },{
+        "id": 3,
+        "name": "Đơn hàng đã giao"
+    },{
+        "id": 4,
+        "name": "Đơn hàng đã hủy"
+    }
+]

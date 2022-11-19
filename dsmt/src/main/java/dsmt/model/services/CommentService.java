@@ -32,9 +32,8 @@ public class CommentService extends AbstractService<Comment, Comment>{
 	}
 
 	public void delete(String a, Integer p, String t) {
-		System.out.println('\''+t+'\'');
 		try {
-			((CommentRepository) rep).deleteById(a, p, '\''+t+'\'');
+			((CommentRepository) rep).deleteById(a, p, t);
 		} catch (Exception e) {
 		}
 	}

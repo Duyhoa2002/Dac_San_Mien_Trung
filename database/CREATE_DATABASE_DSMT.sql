@@ -70,7 +70,7 @@ CREATE TABLE COMMENTS (
     product_id int foreign key references PRODUCTS(id),
     regTime datetime default getDate(),
 	descript nvarchar(255),
-    primary key(account_id, product_id, regTime),
+    primary key(account_id, regTime),
 
 );
 

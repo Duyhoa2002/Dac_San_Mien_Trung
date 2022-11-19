@@ -2,7 +2,6 @@ package dsmt.model.entities;
 
 import java.util.List;
 
-import javax.persistence.CascadeType;
 import javax.persistence.CollectionTable;
 import javax.persistence.Column;
 import javax.persistence.ElementCollection;
@@ -12,9 +11,6 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
-import javax.persistence.OneToMany;
-
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIncludeProperties;
 
 import lombok.AllArgsConstructor;
@@ -35,23 +31,22 @@ public class Product {
 	private String name;
 	private String descript;
 	
-	@ManyToOne(cascade = CascadeType.DETACH)
+	@ManyToOne
 	private Category category;
-	
-	@JsonIncludeProperties({"username", "email", "name"})
-	@JoinColumn(name = "account_id")
-	@ManyToOne(cascade = CascadeType.ALL)
+
+	@ManyToOne @JoinColumn(name="account_id")
+	@JsonIncludeProperties({"username","name","email"})
 	private Account account;
-	
+
 	@ElementCollection @Column(name = "image")
 	@CollectionTable (
 		name = "PRODUCT_IMAGES",
 		joinColumns = @JoinColumn(name = "product_id")
 	) private List<String> images;
-	
-	@JoinColumn(name = "product_id", referencedColumnName = "id")
-	@JsonIgnore @OneToMany List<OrderDetail> order_details;
-	
+
+	public Product(Integer id) {
+		this.id = id;
+	}
 	// @formatter:on
 
 	

@@ -50,7 +50,7 @@ public abstract class AbstractService<E, K> implements InterDAO<E, K> {
 		K id = this.getId(entity);
 		Optional<E> optional = rep.findById(id);
 		if(optional.isPresent()) {
-			return rep.saveAndFlush(entity);
+			return rep.save(entity);
 		} else throw new IllegalArgumentException(id+" không tồn tại, không thể cập nhật.");
 	}
 

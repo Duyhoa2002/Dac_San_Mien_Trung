@@ -126,7 +126,7 @@ public class FileService implements FileUpload {
 	}
 	
 	// get local on this PC - EX: file://C:/.../src/main/data/images/...
-	String pathLocal(String...directories) {
+	public String pathLocal(String...directories) {
 		return context.getRealPath(uri(directories));
 	}
 	

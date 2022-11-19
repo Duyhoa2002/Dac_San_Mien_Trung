@@ -1,5 +1,6 @@
 package dsmt.control.rest;
 
+import java.io.File;
 import java.io.IOException;
 import java.util.Arrays;
 import java.util.List;
@@ -7,6 +8,7 @@ import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
 
+import org.aspectj.util.FileUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -18,6 +20,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.multipart.MultipartFile;
 
+import dsmt.model.services.FileService;
 import dsmt.model.utils.FileUpload;
 
 @CrossOrigin("*")
@@ -30,16 +33,19 @@ public class FileRestControl {
 	
 	// get file's paths
 	@GetMapping("/dir/**")
-	public ResponseEntity<List<String>> getList(HttpServletRequest req) {
+	public ResponseEntity<Object> getList(HttpServletRequest req) throws IOException {
 		String uri = getURI(req, "dir/");
 		String path = service.pointingFolder(uri);
-		List<String> list = Arrays.asList(service.fileNames(true, uri));
-		
-		for (int i = 0; i < list.size(); i++) list.set(
-			i, new StringBuilder(path).append("/").append(list.get(i)).toString()
-		);
-		
-		return ResponseEntity.ok(list);
+		if(uri.endsWith(".json")) {
+			String data = ((FileService) service).pathLocal(uri);
+			return ResponseEntity.ok(FileUtil.readAsString(new File(data)));
+		} else {
+			List<String> list = Arrays.asList(service.fileNames(true, uri));
+			for (int i = 0; i < list.size(); i++) list.set(
+				i, new StringBuilder(path).append("/").append(list.get(i)).toString()
+			);
+			return ResponseEntity.ok(list);
+		}
 	}
 	
 	@GetMapping("/dirmap/**")

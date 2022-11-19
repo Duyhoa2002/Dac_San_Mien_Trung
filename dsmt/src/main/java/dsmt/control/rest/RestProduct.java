@@ -14,7 +14,12 @@ import dsmt.model.services.ProductService;
 @CrossOrigin("*")
 @RequestMapping({"/rest/products"})
 public class RestProduct extends AbstractRESTful<Product, Integer> {
-
+	
+	@GetMapping("/account")
+	public ResponseEntity<Object> getByAccount(@RequestParam(required = false) String id) {
+		return ResponseEntity.ok(((ProductService) super.dao).byAccountId(id==null?"hoandps18107":id));
+	}
+	
 	@GetMapping("/dis")
 	public ResponseEntity<Object> getHOT(@RequestParam(required = false) Integer top) {
 		return ResponseEntity.ok(((ProductService) super.dao).disData(top));
@@ -24,4 +29,5 @@ public class RestProduct extends AbstractRESTful<Product, Integer> {
 	public ResponseEntity<Object> getTOP(@RequestParam(required = false) Integer top) {
 		return ResponseEntity.ok(((ProductService) super.dao).topData(top));
 	}
+	
 }
