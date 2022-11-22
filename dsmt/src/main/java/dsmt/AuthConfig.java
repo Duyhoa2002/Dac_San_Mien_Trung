@@ -14,7 +14,7 @@ public class AuthConfig extends WebSecurityConfigurerAdapter {
 	
 	private final String[] PERMIT = {
 		"/css/**", "/js/**", "/data/**", "/rest/**", "/security/**",
-		"/dsmt/pages/home", "/dsmt/pages/product_detail"
+		"/dsmt/pages/dsmt", "/dsmt/pages/home", "/dsmt/pages/product_detail"
 	};	
 	private final String[] FOR_ADMIN = {
 			"/dsmt/pages/statistic_order",
