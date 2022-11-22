@@ -1,7 +1,10 @@
 package dsmt.model.services;
 
+import java.security.Principal;
 import java.util.List;
 import java.util.Optional;
+
+import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
@@ -14,6 +17,7 @@ import dsmt.model.utils.InterDAO;
 public abstract class AbstractService<E, K> implements InterDAO<E, K> {
 	
 	@Autowired protected JpaRepository<E, K> rep;
+	@Autowired protected HttpServletRequest req;
 	protected abstract K getId(E entity);
 	
 	@Override
@@ -59,4 +63,8 @@ public abstract class AbstractService<E, K> implements InterDAO<E, K> {
 		rep.deleteById(id);
 	}
 
+	protected String getUser(String defaultUser) {
+		Principal p = req.getUserPrincipal();
+		return p == null ? defaultUser : p.getName();
+	}
 }

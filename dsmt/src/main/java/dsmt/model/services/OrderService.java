@@ -31,9 +31,15 @@ public class OrderService extends AbstractService<Order, Integer> {
 		return ((OrderRepository) super.rep).findByAccountId(id);
 	}
 
+	public List<Order> byBuyerId(String id) {
+		return ((OrderRepository) super.rep).findByBuyertId(id);
+	}
+
 	public List<Order> byProductId(Integer id) {
 		return ((OrderRepository) super.rep).findByProductId(id);
 	}
+	
+	
 
 	@Override
 	public <S extends Order> S save(S e) throws IllegalArgumentException {
@@ -47,6 +53,7 @@ public class OrderService extends AbstractService<Order, Integer> {
 
 	@Override
 	public <S extends Order> S update(S entity) throws IllegalArgumentException {
+		System.out.println(entity);
 		return this.bothSave(entity);
 	}
 	
@@ -54,11 +61,15 @@ public class OrderService extends AbstractService<Order, Integer> {
 		// update children
 		service.deleteByOrderId(e.getId());
 		List<OrderDetail> ods = e.getOrder_details();
-		ods.forEach(x -> service.saveOrigin(x));
 
 		// update
 		e.setOrder_details(new ArrayList<>());
-		return super.update(e);
+		e = super.update(e);
+		
+		ods.forEach(x -> service.saveOrigin(x));
+		e.setOrder_details(ods);
+		
+		return e;
 	}
 
 }

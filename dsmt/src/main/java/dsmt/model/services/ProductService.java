@@ -26,7 +26,7 @@ public class ProductService extends AbstractService<Product, Integer>{
 	@Override
 	public <S extends Product> S save(S entity) throws IllegalArgumentException {
 		if(entity.getAccount()==null) {
-			entity.setAccount(new Account("hoandps18107"));
+			entity.setAccount(new Account(getUser("hoandps18107")));
 		} return super.rep.save(entity);
 	}
 	

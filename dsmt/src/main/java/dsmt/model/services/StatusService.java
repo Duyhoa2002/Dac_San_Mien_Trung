@@ -25,6 +25,10 @@ public class StatusService extends AbstractService<OrderStatus, Integer>{
 	public List<OrderStatus> byAccountId(String id) {
 		return ((OrderStatusRepository) super.rep).findByAccountId(id);
 	}
+	
+	public List<OrderStatus> byShipperId(String id) {
+		return ((OrderStatusRepository) super.rep).findByShipperId(id);
+	}
 
 	public List<OrderStatus> byProductId(Integer id) {
 		return ((OrderStatusRepository) super.rep).findByProductId(id);

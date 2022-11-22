@@ -17,7 +17,8 @@ public class RestProduct extends AbstractRESTful<Product, Integer> {
 	
 	@GetMapping("/account")
 	public ResponseEntity<Object> getByAccount(@RequestParam(required = false) String id) {
-		return ResponseEntity.ok(((ProductService) super.dao).byAccountId(id==null?"hoandps18107":id));
+		id = super.getUser(id==null?"shipper1":id);
+		return ResponseEntity.ok(((ProductService) super.dao).byAccountId(id));
 	}
 	
 	@GetMapping("/dis")

@@ -18,7 +18,14 @@ public class RestStatus extends AbstractRESTful<OrderStatus, Integer>{
 	
 	@GetMapping("/account")
 	public ResponseEntity<Object> getByAccount(@RequestParam(required = false) String id) {
-		return ResponseEntity.ok(((StatusService) super.dao).byAccountId(id==null?"hoandps18107":id));
+		id = super.getUser(id==null?"hoandps18107":id);
+		return ResponseEntity.ok(((StatusService) super.dao).byAccountId(id));
+	}
+	
+	@GetMapping("/shipper")
+	public ResponseEntity<Object> getByShipper(@RequestParam(required = false) String id) {
+		id = super.getUser(id==null?"shipper1":id);
+		return ResponseEntity.ok(((StatusService) super.dao).byShipperId(id));
 	}
 	
 	@GetMapping("/product")

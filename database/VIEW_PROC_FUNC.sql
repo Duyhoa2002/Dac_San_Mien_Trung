@@ -24,6 +24,53 @@ GO
 SELECT * FROM VIEW_SO_RANGE
 
 GO
+-- ++++++++++++++++++++++++++++++++++++++++++++++ SELECT QUANTITY AND TOTAL OF PRODUCT BY STATUS
+/*
+	PROC_SS_TIME: STATISTIC ORDER SOLD
+	
+	@Top: số lượng rows | mặc định 1000
+	@at: GROUP THEO (1 - YEAR | 2 - MONTH | 3 - DAY)
+	@status: trạng thái đơn hàng (1 | 2 | 3 | 4)
+	@start: thời gian bắt đầu | mặc định min regTime
+	@end: thời gian kết thúc | mặc định max regTime
+	@desc: sắp xếp theo số lượng
+*/
+IF EXISTS (SELECT name FROM sys.procedures WHERE name = 'PROC_SS_TIME')
+	DROP PROCEDURE PROC_SS_TIME
+GO
+CREATE PROC PROC_SS_TIME
+	@Top int, @at int, @status int, @start datetime, @end datetime, @desc bit
+AS BEGIN 
+	IF @start IS NULL SET @start = (SELECT st FROM VIEW_SO_RANGE)
+	IF @end IS NULL SET @end = (SELECT et FROM VIEW_SO_RANGE)
+	IF @status IS NULL SET @status = 3
+	IF @at IS NULL SET @at = 2
+	SET @at = @at*3
+
+	-- SELECT INTO TEMPORARY TABLE
+	SELECT 
+		SUBSTRING(CONVERT(varchar(8), regTime, 2), 0 , @at) as 'month',
+		SUM(d.quantity) as 'quantity',
+		SUM(d.oldPrice) as 'total' INTO #TEMP
+	FROM ORDER_DETAILS d
+		INNER JOIN ORDER_STATUS s ON s.order_id=d.order_id
+		INNER JOIN ORDERS o ON o.id = d.order_id
+		WHERE regTime BETWEEN @start and @end AND s.status >= @status
+	GROUP BY SUBSTRING(CONVERT(varchar(8), regTime, 2), 0 , @at)
+
+
+	-- SELECT DATA TO RETURN
+	IF @desc IS NULL SELECT TOP(ISNULL(@top, 1000)) * FROM #TEMP
+	ELSE IF @desc=0 SELECT  TOP(ISNULL(@top, 1000)) * FROM #TEMP o ORDER BY o.total
+	ELSE SELECT TOP(ISNULL(@top, 1000)) * FROM #TEMP o ORDER BY o.total DESC
+END
+GO
+	-- @at IS NULL THEN SET @at default = 2
+	-- @status IS NULL THEN SET @status default = 3
+	EXEC PROC_SS_TIME NULL, 2, 2, '2021-6-1', NULL, NULL
+GO
+
+
 -- ++++++++++++++++++++++++++++++++++++++++++++++ SELECT ORDER BY TIME
 /*
 	PROC_SO_TIME: CONTENT UPLOAD BY TIME

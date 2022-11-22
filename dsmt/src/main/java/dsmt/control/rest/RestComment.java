@@ -38,10 +38,13 @@ public class RestComment extends AbstractRESTful<Comment, Comment>{
 	
 	@PostMapping("/post")
 	public ResponseEntity<Comment> post(@RequestBody Comment entity) {
-		entity.setAccount(new Account("hoandps18107"));
+		String id = super.getUser("hoandps18107");
+		entity.setAccount(new Account(id));
 		return ResponseEntity.ok(dao.save(entity));
 	}
-	
+
+
+
 	@DeleteMapping("/id") // Delete method to remove entity
 	public ResponseEntity<Void> delete(
 			@RequestParam(required = false) String a,

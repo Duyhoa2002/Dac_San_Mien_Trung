@@ -38,7 +38,7 @@ public class HTMLUtil {
 				.append(new Date())
 				.append("<br>Mã xác thực tài khoản của bạn là:<h3 style='text-align: center;color: red;'>").append(code)
 				.append("</h3></p><p><em>Cảm ơn bạn đã đồng hành và sử dụng dịch vụ của chúng tôi.</em><br>")
-				.append("Mọi thắc mắc xin liên hệ tới <a href='").append(email).append("'>").append(email)
+				.append("Mọi thắc mắc xin liên hệ tới <a href='mailto:").append(email).append("'>").append(email)
 				.append("</a>.<br>Xin cảm ơn!</p></div>").toString();
 	}
 }

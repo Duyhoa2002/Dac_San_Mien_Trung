@@ -1,0 +1,15 @@
+[
+    {
+        "title": "ẨM THỰC ĐẶC SẢN MIỀN TRUNG",
+        "content": "Miền trung có nhiều thủy, hải sản đặc trưng, tươi ngon khi sống ở vùng biển sạch. Tiêu biểu trong số đó là hải sâm, bào ngư, vi cá mập, mực một nắng, sao biển, mực khô, mực rim, tôm khô, cá thu tẩm",
+        "image": "http://localhost:8080/data/images/carousel/maxresdefault.jpg"
+    },{
+        "title": "MUA BÁN, ĐĂNG KÝ LÀM ĐỐI TÁC",
+        "content": "Đến nơi đây bạn có thể tìm thấy món ăn này ở bất cứ nơi đâu từ những quán ăn vỉa hè đến những nhà hàng sang trọng. Bánh canh hẹ không chỉ được người dân nơi đây ưa chuộng mà còn rất được lòng các du khách.",
+        "image": "http://localhost:8080/data/images/carousel/banner2.jpg"
+    },{
+        "title": "ĐẶC SẢN MIỀN TRUNG KINH DOANH MÓN NGON",
+        "content": "Đặc sản miền trung tổng hợp các món đặc sản khu vực miền trung ngoài những món ăn này miền trung hẵn sẽ còn nhiều món đặc sản khác hãy cùng Quà Quê Việt khám phá ở những nội dung tiếp theo nhé!",
+        "image": "http://localhost:8080/data/images/carousel/carousel3.png"
+    }
+]

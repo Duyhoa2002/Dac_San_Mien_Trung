@@ -1,6 +1,9 @@
 package dsmt.control.rest;
 
+import java.security.Principal;
 import java.util.Optional;
+
+import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -21,6 +24,7 @@ public abstract class AbstractRESTful<E, K> {
 
 	// @formatter:off
 	@Autowired protected InterDAO<E, K> dao;
+	@Autowired protected HttpServletRequest req;
 
 	@GetMapping({"","/{id}"}) // reading method to get data
 	public ResponseEntity<Object> getData(@PathVariable(required = false) K id) throws IllegalArgumentException {
@@ -51,4 +55,8 @@ public abstract class AbstractRESTful<E, K> {
 	}
 
 	// @formatter:on
+	protected String getUser(String defaultUser) {
+		Principal p = req.getUserPrincipal();
+		return p == null ? defaultUser : p.getName();
+	}
 }

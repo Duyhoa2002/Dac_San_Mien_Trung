@@ -6,6 +6,7 @@ import javax.persistence.CollectionTable;
 import javax.persistence.Column;
 import javax.persistence.ElementCollection;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 
@@ -24,11 +25,18 @@ public class Account {
 	private String email;
 	private String name;
 	
-	@ElementCollection @Column(name = "role_id") // phan quyen he thong
+	@ElementCollection(fetch = FetchType.EAGER) @Column(name = "role_id") // phan quyen he thong
 	@CollectionTable(name = "AUTHORITIES", joinColumns = { @JoinColumn(name = "account_id") })
 	private Set<String> roles;
 	
 	public Account(String username) {
 		this.username = username;
 	}
+
+	public Account(String username, String password) {
+		this.username = username;
+		this.password = password;
+	}
+	
+	
 }

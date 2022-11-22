@@ -18,4 +18,8 @@ public class AccountService extends AbstractService<Account, String>{
 		return ((AccountRepository) super.rep).findByRole(role_id);
 	}
 
+	public Account getByEmail(String email) {
+		return ((AccountRepository) super.rep).getByEmail(email);
+	}
+
 }

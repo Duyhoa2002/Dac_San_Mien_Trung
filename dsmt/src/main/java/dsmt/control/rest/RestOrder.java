@@ -17,7 +17,14 @@ public class RestOrder extends AbstractRESTful<Order, Integer> {
 	
 	@GetMapping("/account")
 	public ResponseEntity<Object> getByAccount(@RequestParam(required = false) String id) {
-		return ResponseEntity.ok(((OrderService) super.dao).byAccountId(id==null?"hoandps18107":id));
+		id = getUser(id==null?"hoandps18107":id);
+		return ResponseEntity.ok(((OrderService) super.dao).byAccountId(id));
+	}
+	
+	@GetMapping("/buyer")
+	public ResponseEntity<Object> getByBuyer(@RequestParam(required = false) String id) {
+		id = getUser(id==null?"hoandps18107":id);
+		return ResponseEntity.ok(((OrderService) super.dao).byBuyerId(id));
 	}
 	
 	@GetMapping("/product")
@@ -29,4 +36,5 @@ public class RestOrder extends AbstractRESTful<Order, Integer> {
 	public ResponseEntity<Object> getNoStatus(@RequestParam(required = false) Integer s) {
 		return ResponseEntity.ok(((OrderService) super.dao).byStatus(s));
 	}
+	
 }

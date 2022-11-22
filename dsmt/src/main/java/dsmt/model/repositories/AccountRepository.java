@@ -13,4 +13,7 @@ public interface AccountRepository extends JpaRepository<Account, String> {
 	@Query(value = "EXEC PROC_ACCOUNT_BY_ROLE :role_id", nativeQuery = true)
 	List<Account> findByRole(String role_id);
 
+	@Query("SELECT o FROM ACCOUNTS o WHERE o.email=:email")
+	Account getByEmail(String email);
+
 }

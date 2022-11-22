@@ -42,7 +42,7 @@ public class Order {
 	@JsonIgnore @OneToOne(cascade = CascadeType.ALL)
 	private OrderStatus status;
 	
-	@JoinColumn(name = "order_id") @OneToMany(cascade = CascadeType.ALL)
+	@JoinColumn(name = "order_id", insertable = false, updatable = false) @OneToMany
 	private List<OrderDetail> order_details;
 
 	public Order(String account_id) {
